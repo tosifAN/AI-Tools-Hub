@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Search, Sparkles } from 'lucide-react';
 import { categories } from './data/aiTools';
 import { CategoryCard } from './components/CategoryCard';
@@ -9,15 +9,37 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const filteredCategories = categories.filter(category =>
-    category.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    category.tools.some(tool => 
-      tool.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      tool.description.toLowerCase().includes(searchTerm.toLowerCase())
-    )
-  );
+  const filteredCategories = categories.filter(category => {
+    const searchLower = searchTerm.toLowerCase();
+    return (
+      category.name.toLowerCase().includes(searchLower) ||
+      category.description.toLowerCase().includes(searchLower) ||
+      category.tools.some(tool => 
+        tool.name.toLowerCase().includes(searchLower) ||
+        tool.description.toLowerCase().includes(searchLower) ||
+        tool.category.toLowerCase().includes(searchLower)
+      )
+    );
+  });
 
-  const currentCategory = categories.find(c => c.name === selectedCategory);
+  const currentCategory = categories.find(c => c.slug === selectedCategory);
+
+  console.log('Current Category:', currentCategory);
+  console.log('Selected Category:', selectedCategory);
+
+  useEffect(() => {
+    console.log('Selected Category Updated:', selectedCategory);
+    console.log('Current Category:', categories.find(c => c.slug === selectedCategory));
+  }, [selectedCategory]);
+
+  useEffect(() => {
+    if (selectedCategory) {
+      const category = categories.find(c => c.slug === selectedCategory);
+      console.log('Selected Category:', selectedCategory);
+      console.log('Found Category:', category);
+      console.log('Tools:', category?.tools);
+    }
+  }, [selectedCategory]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-25 via-white to-purple-25">
@@ -94,7 +116,7 @@ function App() {
         <AnimatePresence mode="wait">
           {selectedCategory ? (
             <motion.div
-              key="tools"
+              key={selectedCategory}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
@@ -110,11 +132,19 @@ function App() {
               <h2 className="text-3xl font-bold text-gray-900 mb-8">
                 {currentCategory?.name}
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {currentCategory?.tools.map((tool) => (
-                  <ToolCard key={tool.name} tool={tool} />
+                  <ToolCard 
+                    key={tool.name} 
+                    tool={tool}
+                  />
                 ))}
               </div>
+              {currentCategory?.tools.length === 0 && (
+                <div className="text-center text-gray-500 py-8">
+                  No tools found in this category
+                </div>
+              )}
             </motion.div>
           ) : (
             <motion.div
@@ -127,7 +157,11 @@ function App() {
                 <CategoryCard
                   key={category.name}
                   category={category}
-                  onClick={() => setSelectedCategory(category.name)}
+                  onClick={() => {
+                    setSearchTerm('');
+                    setSelectedCategory(category.slug);
+                    console.log('Clicked category:', category.name, 'with slug:', category.slug);
+                  }}
                 />
               ))}
             </motion.div>
@@ -188,4 +222,5 @@ function App() {
     </div>
   );
 }
+
 export default App;
