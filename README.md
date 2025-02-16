@@ -7,9 +7,7 @@
 
 **The world's most comprehensive open-source directory of AI tools** featuring 2000+ tools across 80+ categories. Perfect for developers, researchers, and AI enthusiasts to discover cutting-edge AI solutions.
 
-👉 **Live Demo:** [https://ai-tools-directory.example.com](https://ai-tools-hub-kappa.vercel.app/)
-
-![AI Tools Directory Preview](https://via.placeholder.com/1280x720.png?text=AI+Tools+Directory+Preview+Light+and+Dark+Mode)
+👉 **Live Demo:** [https://ai-tools-hub-kappa.vercel.app](https://ai-tools-hub-kappa.vercel.app/)
 
 ## 🌟 Featured Categories
 - **🤖 AI Development**: GitHub Copilot, Replit Ghostwriter, Tabnine
