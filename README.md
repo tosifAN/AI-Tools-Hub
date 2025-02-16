@@ -7,7 +7,7 @@
 
 **The world's most comprehensive open-source directory of AI tools** featuring 2000+ tools across 80+ categories. Perfect for developers, researchers, and AI enthusiasts to discover cutting-edge AI solutions.
 
-👉 **Live Demo:** [https://ai-tools-directory.example.com](https://ai-tools-directory.example.com)
+👉 **Live Demo:** [https://ai-tools-directory.example.com](https://ai-tools-hub-kappa.vercel.app/)
 
 ![AI Tools Directory Preview](https://via.placeholder.com/1280x720.png?text=AI+Tools+Directory+Preview+Light+and+Dark+Mode)
 
@@ -34,6 +34,42 @@
 - **Icons**: Lucide React
 - **Hosting**: Vercel/Netlify Ready
 
-## ⚡ Quick Start
 
-1. Clone the repository 
+## 📦 Scripts
+- `npm run dev` - Start development server
+- `npm run build` - Create production build
+- `npm run lint` - Run ESLint checks
+- `npm run preview` - Preview production build
+
+## 🌐 SEO Optimized
+- Schema.org structured data
+- Automatic sitemap generation
+- Open Graph meta tags
+- Canonical URL support
+- robots.txt configuration
+
+## 🤝 Contributing
+We welcome contributions! Here's how you can help:
+
+1. **Add New Tools** - Edit `src/data/aiTools.ts`
+2. **Improve UI** - Modify components in `/src/components`
+3. **Enhance SEO** - Update metadata in `public/index.html`
+4. **Fix Bugs** - Open issues or submit pull requests
+
+Please read our [Contribution Guidelines](CONTRIBUTING.md) before submitting PRs.
+
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📚 Data Sources
+- Manual curation from 50+ AI newsletters
+- Verified tool websites
+- Community submissions
+- AI research papers
+
+*Last Updated: FEB 16, 2025*
+
+---
+
+**⭐ Star this repository** if you find it useful!  
+*Let's build the ultimate AI resource together!* 🚀
