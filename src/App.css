@@ -1,0 +1,141 @@
+:root {
+  --primary-color: #3f51b5;
+  --secondary-color: #f50057;
+  --background-light: #f5f7fa;
+  --background-dark: #1a1a1a;
+  --text-light: #333;
+  --text-dark: #fff;
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  background: var(--background-light);
+  color: var(--text-light);
+  transition: all 0.3s ease;
+}
+
+.App.dark-mode {
+  background: var(--background-dark);
+  color: var(--text-dark);
+}
+
+.main-content {
+  padding: 2rem;
+}
+
+.hero-section {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  text-align: center;
+}
+
+.hero-title {
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  text-transform: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.info-card {
+  height: 100%;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.floating-action-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--primary-color);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.floating-action-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.app-bar {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(15px);
+  color: var(--text-light) !important;
+}
+
+.dark-mode .app-bar {
+  background: rgba(26, 26, 26, 0.8) !important;
+  color: var(--text-dark) !important;
+}
+
+.dark-mode .hero-section,
+.dark-mode .info-card {
+  background: rgba(26, 26, 26, 0.5);
+  color: var(--text-dark);
+}
+
+.dark-mode .cta-button {
+  background: var(--secondary-color);
+}
+
+.MuiAppBar-root {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(10px);
+  color: #333 !important;
+}
+
+.MuiPaper-root {
+  transition: transform 0.3s ease-in-out;
+}
+
+.MuiPaper-root:hover {
+  transform: translateY(-5px);
+} 
