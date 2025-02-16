@@ -157,7 +157,7 @@ function App() {
         </section>
       </div>
       <script type="application/ld+json">
-        {{
+        {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Dataset",
           "name": "AI Tools Directory",
@@ -171,30 +171,21 @@ function App() {
           "datePublished": "2024-03-20",
           "version": "2.0",
           "keywords": "AI, Artificial Intelligence, Machine Learning Tools",
-          "hasPart": [
-            {{#each categories}}
-            {
+          "hasPart": categories.map((category, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "name": category.name,
+            "description": category.description,
+            "itemListElement": category.tools.map((tool, toolIndex) => ({
               "@type": "ListItem",
-              "position": {{@index}},
-              "name": "{{this.name}}",
-              "description": "{{this.description}}",
-              "itemListElement": [
-                {{#each this.tools}}
-                {
-                  "@type": "ListItem",
-                  "position": {{@index}},
-                  "name": "{{this.name}}",
-                  "url": "{{this.website}}"
-                }{{#unless @last}},{{/unless}}
-                {{/each}}
-              ]
-            }{{#unless @last}},{{/unless}}
-            {{/each}}
-          ]
-        }}
+              "position": toolIndex + 1,
+              "name": tool.name,
+              "url": tool.website
+            }))
+          }))
+        })}
       </script>
     </div>
   );
 }
-
 export default App;
